@@ -12,7 +12,21 @@ SRC = main.c \
 	  ft_regu_tab.c \
 	  ft_zoom_tab.c \
 	  ft_make_draw.c \
-	  ft_printtab.c
+	  ft_printtab.c \
+	  ft_put_pixel_in_image.c \
+	  \
+	  ft_east.c \
+	  ft_east_north.c \
+	  ft_east_south.c \
+	  ft_north.c \
+	  ft_north_east.c \
+	  ft_north_west.c \
+	  ft_south.c \
+	  ft_south_east.c \
+	  ft_south_west.c \
+	  ft_west.c \
+	  ft_west_north.c \
+	  ft_west_south.c 
 OBJ = $(SRC:.c=.o)
 NAME = fdf
 FLAGS = -Wall -Wextra -Werror

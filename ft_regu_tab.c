@@ -20,36 +20,36 @@ t_ptmax	ft_regu_tab(t_env *env)
 	unsigned int		j;
 	t_ptmax	memo;
 
-	minx = env->tab_origin[0][0].x;
-	miny = env->tab_origin[0][0].y;
-	memo.x = env->tab_origin[0][0].x;
-	memo.y = env->tab_origin[0][0].y;
+	minx = env->tab[0][0].x;
+	miny = env->tab[0][0].y;
+	memo.x = env->tab[0][0].x;
+	memo.y = env->tab[0][0].y;
 	i = 0;
-	while (env->tab_origin[i])
+	while (env->tab[i])
 	{
 		j = 0;
 		while (j < env->width_tab)
 		{
-			if (env->tab_origin[i][j].x < minx)
-				minx = env->tab_origin[i][j].x;
-			if (env->tab_origin[i][j].y < miny)
-				miny = env->tab_origin[i][j].y;
+			if (env->tab[i][j].x < minx)
+				minx = env->tab[i][j].x;
+			if (env->tab[i][j].y < miny)
+				miny = env->tab[i][j].y;
 			j++;
 		}
 		i++;
 	}
 	i = 0;
-	while (env->tab_origin[i])
+	while (env->tab[i])
 	{
 		j = 0;
 		while (j < env->width_tab)
 		{
-			env->tab_origin[i][j].x += ft_abs(minx);
-			env->tab_origin[i][j].y += ft_abs(miny);
-			if (env->tab_origin[i][j].x > memo.x)
-				memo.x = env->tab_origin[i][j].x;
-			if (env->tab_origin[i][j].y > memo.y)
-				memo.y = env->tab_origin[i][j].y;
+			env->tab[i][j].x += ft_abs(minx);
+			env->tab[i][j].y += ft_abs(miny);
+			if (env->tab[i][j].x > memo.x)
+				memo.x = env->tab[i][j].x;
+			if (env->tab[i][j].y > memo.y)
+				memo.y = env->tab[i][j].y;
 			j++;
 		}
 		i++;

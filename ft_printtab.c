@@ -13,8 +13,8 @@
 #include "fdf.h"
 
 #define P_X
-//#define P_Y
-//#define P_Z
+#define P_Y
+#define P_Z
 
 void	ft_printtab(t_env *env, char type)
 {

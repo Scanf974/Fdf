@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_getenv->tab.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/18 18:14:29 by bsautron          #+#    #+#             */
-/*   Updated: 2015/01/02 22:39:31 by bsautron         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
 int		ft_nbcol(char *str)
@@ -29,16 +17,16 @@ int		ft_nbcol(char *str)
 }
 
 
-t_pt3d	**ft_gettab(t_env *env, char *file, unsigned int *lin, unsigned int *col)
+t_pt3d	**ft_gettab(t_env *env, char *file, size_t *lin, size_t *col)
 {
 	int		fd;
 	char	*line;
-	unsigned int		i;
-	unsigned int		j;
+	size_t		i;
+	size_t		j;
 
 	*lin = 0;
 	fd = open(file, O_RDONLY);
-	while (get_next_line(fd, &line) > 0) 
+	while (get_next_line(fd, &line) > 0)
 	{
 		*col = ft_nbcol(line);
 		*lin = *lin + 1;

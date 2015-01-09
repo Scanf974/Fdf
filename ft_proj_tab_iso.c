@@ -23,7 +23,7 @@ void	ft_proj_tab_iso(t_env *env)
 		j = 0;
 		while (j < env->width_tab)
 		{
-			env->tab_origin[i][j] = ft_proj_iso(env->tab_origin[i][j]);
+			env->tab[i][j] = ft_proj_iso(env, env->tab_origin[i][j]);
 			j++;
 		}
 		i++;

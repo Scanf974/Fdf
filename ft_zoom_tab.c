@@ -12,23 +12,23 @@
 
 #include "fdf.h"
 
-void	ft_zoom_tab(t_env *env, t_ptmax max)
+void	ft_zoom_tab(t_env *env, t_ptmax max, int zoom_it)
 {
 	unsigned int		i;
 	unsigned int		j;
-	float	padding;
 
-	padding = env->zoom / max.x;
-	dprintf(1, "padding = %f\n", padding);
+	if (zoom_it)
+		env->padding = env->zoom / max.x;
+	dprintf(1, "%f = %d / %f\n", env->padding, env->zoom, max.x);
 	i = 0;
 	while (env->tab[i])
 	{
 		j = 0;
 		while (j < env->width_tab)
 		{
-			env->tab[i][j].x = env->tab_origin[i][j].x * (float)padding;
-			env->tab[i][j].y = env->tab_origin[i][j].y * (float)padding;
-			env->tab[i][j].z = env->tab_origin[i][j].z;
+			env->tab[i][j].x = env->tab[i][j].x * env->padding;
+			env->tab[i][j].y = env->tab[i][j].y * env->padding;
+			env->tab[i][j].z = env->tab[i][j].z;
 			j++;
 		}
 		i++;
