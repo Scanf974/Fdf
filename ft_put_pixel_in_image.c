@@ -39,8 +39,6 @@ void	ft_put_pixel_in_image(t_env *env, t_pt3d pt, float ez)
 		g = 255;
 		r = 255;
 	}
-
-
 	if (((int)pt.x + env->origin_img->x) * 4 < env->size_line
 		&& ((int)pt.x + env->origin_img->x) * 4 > 0
 		&& ((int)pt.y + env->origin_img->y) * 4 < (int)env->height_img * 4

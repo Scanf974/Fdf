@@ -20,4 +20,3 @@ int		expose_hook(t_env *env)
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	return (0);
 }
-

@@ -16,7 +16,6 @@ int		ft_nbcol(char *str)
 	return (nb);
 }
 
-
 t_pt3d	**ft_gettab(t_env *env, char *file, size_t *lin, size_t *col)
 {
 	int		fd;

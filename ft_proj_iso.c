@@ -57,15 +57,16 @@ static float	ft_dtor(float degre)
 	return (3.14159 * degre / 180);
 }
 
-t_pt3d	ft_proj_iso(t_env *env, t_pt3d pt)
+t_pt3d			ft_proj_iso(t_env *env, t_pt3d pt)
 {
 	t_pt3d		pt_iso;
-	t_pt3d		pt_rot;
 	float		cte1;
 	float		cte2;
+	t_pt3d		pt_rot;
 	float		mx[3][3];
 	float		my[3][3];
 	float		mz[3][3];
+
 
 	mx[0][0] = 1;
 	mx[0][1] = 0;
