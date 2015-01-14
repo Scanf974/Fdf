@@ -44,6 +44,7 @@ SRC = ft_memset.c \
 	  ft_strsub.c \
 	  ft_strjoin.c \
 	  ft_strtrim_white_space.c \
+	  ft_strtrim.c \
 	  ft_strsplit.c \
 	  ft_atoi.c \
 	  ft_itoa.c \
@@ -83,17 +84,17 @@ all: $(NAME)
 
 $(NAME):
 	@$(CC) -c $(SRC) $(CFLAGS) -I ./includes/
-	@echo "\033[33;34m===> Creation des .o et"
+	@echo "\033[33;40m===> Creation des .o et"
 	@ar rc $(NAME) $(OBJ)
-	@echo "===> Creation de la libft"
-	@ranlib $(NAME)
+	@echo "===> Creation de la libft\033[33;37m"
+	@ranlib libft.a
 
 clean:
 	@rm -f $(OBJ)
-	@echo "\033[33;31m===> Suppresion des objets"
+	@echo "\033[33;31m===> Suppresion des objets\033[33;37m"
 
 fclean: clean
-	@rm -f libft.a
-	@echo "\033[35;31m===> Suppression de la libft"
+	@rm -f $(NAME)
+	@echo "\033[35;31m===> Suppression de la libft\033[33;37m"
 
 re: fclean all

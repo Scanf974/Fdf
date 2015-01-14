@@ -6,10 +6,12 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:21:33 by bsautron          #+#    #+#             */
-/*   Updated: 2014/12/31 06:44:12 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/13 22:28:55 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "get_next_line.h"
 
 static int	have_back(char *str)

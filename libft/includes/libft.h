@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 17:26:05 by bsautron          #+#    #+#             */
-/*   Updated: 2014/12/18 18:29:15 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/13 22:35:47 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define LIBFT_H
 
 # include <string.h>
-# include <unistd.h>
-# include <stdlib.h>
 
 typedef struct	s_list
 {
@@ -43,7 +41,7 @@ void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
 size_t			ft_strlen(const char *s);
 char			*ft_strcpy(char *dst, const char *src);
-char			*ft_strncpy(char *dst, char *src, size_t n);
+char			*ft_strncpy(char *dst, const char *src, size_t n);
 char			*ft_strdup(const char *s1);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strncat(char *s1, const char *s2, size_t n);
@@ -66,6 +64,7 @@ int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strtrim(char const *s);
 char			*ft_strtrim_white_space(char const *s);
 char			**ft_strsplit(char const *s, char c);
 int				ft_atoi(const char *str);
@@ -94,6 +93,5 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int				get_next_line(int fd, char **line);
 
 #endif

@@ -3,62 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 19:28:35 by bsautron          #+#    #+#             */
-/*   Updated: 2014/11/07 23:19:02 by bsautron         ###   ########.fr       */
+/*   Created: 2014/12/25 06:12:55 by bsautron          #+#    #+#             */
+/*   Updated: 2014/12/26 00:34:15 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		len_no_white_space(char const *str)
+char	*ft_strtrim(char const *s)
 {
 	int		i;
 	int		len;
 
 	i = 0;
-	len = 0;
-	while (str[i])
-	{
-		if (!(str[i] <= ' '))
-			len++;
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s) - 1;
+	while (s[i] && s[i] <= ' ')
 		i++;
-	}
-	return (len);
-}
-
-static char		*cpy_no_white_space(char *dst, const char *src)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (src[i])
-	{
-		if (!(src[i] <= ' '))
-		{
-			dst[j] = src[i];
-			j++;
-		}
-		i++;
-	}
-	return (dst);
-}
-
-char			*ft_strtrim(char const *s)
-{
-	char	*dest_s;
-
-	if (s)
-	{
-		dest_s = ft_memalloc(len_no_white_space(s) + 1);
-		if (dest_s)
-		{
-			dest_s = cpy_no_white_space(dest_s, s);
-			return (dest_s);
-		}
-	}
-	return (NULL);
+	while (s[len] <= ' ' && len > i)
+		len--;
+	return (ft_strsub(s, i, len - i + 1));
 }

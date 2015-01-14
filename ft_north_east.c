@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_north_east.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/01/13 19:01:59 by bsautron          #+#    #+#             */
+/*   Updated: 2015/01/13 19:02:00 by bsautron         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	ft_north_east(t_env *env, t_pt3d pt0, t_pt3d pt1, float *d)
@@ -7,7 +19,7 @@ void	ft_north_east(t_env *env, t_pt3d pt0, t_pt3d pt1, float *d)
 	float	ht;
 
 	ht = (pt1.z - pt0.z) / -d[Y];
-	ez = 2 * pt0.z;
+	ez = pt0.z;
 	e = d[Y];
 	d[Y] = e * 2;
 	d[X] = d[X] * 2;

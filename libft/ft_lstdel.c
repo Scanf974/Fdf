@@ -23,6 +23,9 @@ static void		ft_lstdel2(t_list **alst, void (*del)(void *, size_t))
 
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	ft_lstdel2(alst, del);
-	*alst = NULL;
+	if (alst && del)
+	{
+		ft_lstdel2(alst, del);
+		*alst = NULL;
+	}
 }

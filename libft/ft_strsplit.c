@@ -6,10 +6,11 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 21:35:29 by bsautron          #+#    #+#             */
-/*   Updated: 2014/11/07 21:37:39 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/13 19:01:13 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 static int		nb_words(char const *s, char c)
@@ -75,7 +76,7 @@ char			**ft_strsplit(char const *s, char c)
 			s += len_split(s, c);
 			i++;
 		}
+		tab[i] = 0;
 	}
-	tab[i] = 0;
 	return (tab);
 }

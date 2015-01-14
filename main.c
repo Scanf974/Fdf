@@ -6,39 +6,46 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/11 18:57:20 by bsautron          #+#    #+#             */
-/*   Updated: 2015/01/02 23:54:53 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/13 22:29:17 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		ft_max(int n1, int n2)
+static void	ft_init_env(t_env *env)
 {
-	return ((n1 > n2) ? n1 : n2);
+	env->height = 1200;
+	env->width = 1800;
+	env->height_img = env->height;
+	env->width_img = env->width;
+	env->zoom = ft_max(env->height, env->width);
+	env->origin_img = (t_pt2d *)malloc(sizeof(t_pt2d));
+	env->origin_img->x = 0;
+	env->origin_img->y = 0;
+	env->angle[0] = 0;
+	env->angle[1] = 0;
+	env->angle[2] = 0;
 }
 
-int		main(int ac, char **av)
+static char	*ft_gettt(t_env *env)
+{
+	char	*ii;
+
+	ii = mlx_get_data_addr(env->img, &env->bbp, &env->size_line, &env->endian);
+	return (ii);
+}
+
+int			main(int ac, char **av)
 {
 	t_env	env;
 
-	env.height = 700;
-	env.width = 1200;
-	env.height_img = env.height;
-	env.width_img = env.width;
-	env.zoom = ft_max(env.height, env.width);
-	env.origin_img = (t_pt2d *)malloc(sizeof(t_pt2d));
-	env.origin_img->x = 0;
-	env.origin_img->y = 0;
-	env.angle[0] = 0;
-	env.angle[1] = 0;
-	env.angle[2] = 0;
+	ft_init_env(&env);
 	if (ac == 2)
 	{
-		env.tab_origin = ft_gettab(&env, av[1], &env.height_tab, &env.width_tab);
+		ft_gettab(&env, av[1], &env.height_tab, &env.width_tab);
 		ft_proj_tab_iso(&env);
 		env.memo = ft_regu_tab(&env);
 		ft_zoom_tab(&env, env.memo, 1);
-
 		if (!(env.mlx = mlx_init()))
 		{
 			ft_putendl("Probleme d'env");
@@ -46,16 +53,12 @@ int		main(int ac, char **av)
 		}
 		env.win = mlx_new_window(env.mlx, env.width, env.height, "TITRE DE M*");
 		env.img = mlx_new_image(env.mlx, env.width_img, env.height_img);
-		env.char_img = mlx_get_data_addr(env.img, &env.bbp, &env.size_line, &env.endian);
-
+		env.char_img = ft_gettt(&env);
 		mlx_key_hook(env.win, key_hook, &env);
 		mlx_expose_hook(env.win, expose_hook, &env);
 		mlx_loop(env.mlx);
 	}
 	else
-	{
-		ft_putnbr(ac - 1);
 		ft_putendl("Le programme a besoin que d'un seul argument");
-	}
 	return (0);
 }

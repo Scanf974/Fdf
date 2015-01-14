@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_east.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/01/13 19:02:50 by bsautron          #+#    #+#             */
+/*   Updated: 2015/01/13 19:06:45 by bsautron         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	ft_east(t_env *env, t_pt3d pt0, t_pt3d pt1, float *d)
@@ -6,7 +18,7 @@ void	ft_east(t_env *env, t_pt3d pt0, t_pt3d pt1, float *d)
 	float	ht;
 
 	ht = (pt1.z - pt0.z) / d[X];
-	ez = 2 * pt0.z;
+	ez = pt0.z;
 	while (pt0.x < pt1.x)
 	{
 		ft_put_pixel_in_image(env, pt0, ez);

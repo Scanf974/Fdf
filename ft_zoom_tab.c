@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/23 09:24:12 by bsautron          #+#    #+#             */
-/*   Updated: 2015/01/02 22:40:32 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/13 22:30:50 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_zoom_tab(t_env *env, t_ptmax max, int zoom_it)
 
 	if (zoom_it)
 		env->padding = env->zoom / max.x;
-	dprintf(1, "%f = %d / %f\n", env->padding, env->zoom, max.x);
 	i = 0;
 	while (env->tab[i])
 	{
