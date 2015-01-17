@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/11 18:57:20 by bsautron          #+#    #+#             */
-/*   Updated: 2015/01/13 22:29:17 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/14 18:00:28 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			main(int ac, char **av)
 		ft_zoom_tab(&env, env.memo, 1);
 		if (!(env.mlx = mlx_init()))
 		{
-			ft_putendl("Probleme d'env");
+			ft_putendl_fd("Probleme d'env", 2);
 			exit (1);
 		}
 		env.win = mlx_new_window(env.mlx, env.width, env.height, "TITRE DE M*");
@@ -59,6 +59,6 @@ int			main(int ac, char **av)
 		mlx_loop(env.mlx);
 	}
 	else
-		ft_putendl("Le programme a besoin que d'un seul argument");
+		ft_putendl_fd("Le programme a besoin que d'un seul argument", 2);
 	return (0);
 }

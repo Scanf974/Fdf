@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 22:45:17 by bsautron          #+#    #+#             */
-/*   Updated: 2015/01/13 23:14:59 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/14 15:47:08 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "libft.h"
 # include "get_next_line.h"
 
+# define FUCK_Y		ijk[1] = 0; ijk[2] = 0
 # define ORI_TAB	1
 # define ISO_TAB	2
 # define Y			0

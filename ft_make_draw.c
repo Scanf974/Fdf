@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/31 04:29:53 by bsautron          #+#    #+#             */
-/*   Updated: 2014/12/31 05:10:25 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/01/14 15:08:34 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_make_draw(t_env *env)
 		j = 0;
 		while (j < env->width_tab)
 		{
-			if (env->tab[i][j + 1].x > 0)
+			if (j + 1 < env->width_tab)
 				ft_draw_line_in_image(env, env->tab[i][j], env->tab[i][j + 1]);
 			if (env->tab[i + 1])
 				ft_draw_line_in_image(env, env->tab[i][j], env->tab[i + 1][j]);
